@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4330ecc111cd61d4694061e0e579f4f0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - swarmerPrefab: {instanceID: 0}
+  - FastPrefab: {fileID: 5671192516180799683, guid: ed28a4a1868d8e14d90de1ed9fb86587,
+      type: 3}
+  - target: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
