@@ -23,10 +23,6 @@ public class ScoreManager : MonoBehaviour
             // Listen for scene changes
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     void Update()
@@ -46,7 +42,9 @@ public class ScoreManager : MonoBehaviour
             GameObject obj = GameObject.FindWithTag("ScoreText");
             if (obj != null)
             {
+                obj.SetActive(true);
                 scoreText = obj.GetComponent<TextMeshProUGUI>();
+                scoreText.gameObject.SetActive(true);
                 UpdateScoreText();
             }
             else
