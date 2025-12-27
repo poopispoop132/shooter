@@ -15,6 +15,7 @@ public class AiChase : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             StartCoroutine(DestroyAfterDelay(other.gameObject));
+            ScoreManager.instance.AddScore();
         }
     }
 

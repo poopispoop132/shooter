@@ -1,12 +1,11 @@
 using UnityEngine;
 
-public class MainMenuManager : MonoBehaviour
+public class RetryScreen : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("MainMenuManager Started");
-       
+        
     }
 
     // Update is called once per frame
@@ -15,9 +14,11 @@ public class MainMenuManager : MonoBehaviour
         
     }
 
-    public void OnPlayButtonPressed()
+    public void OnRetryButtonPressed()
     {
-        ScoreManager.instance.ResetScore();
+        Debug.Log("Retry Button Pressed");
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+
+        ScoreManager.instance.ResetScore();
     }
 }

@@ -13,6 +13,7 @@ public class FastAIChase : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             StartCoroutine(DestroyAfterDelay(other.gameObject));
+            ScoreManager.instance.AddScore();
         }
     }
 

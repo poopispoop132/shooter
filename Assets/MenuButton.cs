@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ScoreScript : MonoBehaviour
+public class MenuButton : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -12,5 +12,10 @@ public class ScoreScript : MonoBehaviour
     void Update()
     {
         
+    }
+    public void OnMenuButtonPressed()
+    {
+        Debug.Log("Menu Button Pressed");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 }
