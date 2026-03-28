@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// i haate coding bro why wont it WORKKKKK
 public class Shooting : MonoBehaviour
 {
     private Camera mainCam;
