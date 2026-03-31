@@ -59,7 +59,7 @@ public class ScoreManager : MonoBehaviour
         {
         }
     }
-
+// fart
 
 
     public void AddScore()
