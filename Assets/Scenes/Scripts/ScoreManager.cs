@@ -31,12 +31,10 @@ public class ScoreManager : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Clear old reference every scene
         Debug.Log("Scene Loaded: " + scene.name);
         scoreText = null;
 
-        // Only gameplay scene should show the score
-        if (scene.name == "GameScene") // <-- use YOUR gameplay scene name
+        if (scene.name == "GameScene")
         {
             GameObject obj = GameObject.FindWithTag("ScoreText");
             if (obj != null)
