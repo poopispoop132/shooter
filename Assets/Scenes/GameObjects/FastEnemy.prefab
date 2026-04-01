@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FastAIChase
   player: {fileID: 0}
-  speed: 0
+  speed: 5
 --- !u!50 &-6755427757696293615
 Rigidbody2D:
   serializedVersion: 5
