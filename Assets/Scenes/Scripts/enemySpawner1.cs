@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -10,10 +11,8 @@ public class EnemySpawner : MonoBehaviour
     private GameObject FastPrefab;
 
     [Header("Spawn Timing")]
-    [SerializeField]
-    private float spawnInterval = 1.0f;
-    [SerializeField]
-    private float fastSpawnInterval = 2.5f;
+    public float spawnInterval = 1.0f;
+    public float fastSpawnInterval = 2.5f;
 
     [Header("Spawn Distance")]
     [SerializeField]
@@ -21,15 +20,23 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Optional Target (Player)")]
     [SerializeField]
-    private Transform target; // assign player here (optional)
+    private Transform target;
 
     void Start()
     {
         if (target == null)
             target = GameObject.FindGameObjectWithTag("Player")?.transform;
-        
+
         StartCoroutine(SpawnEnemies());
         StartCoroutine(SpawnFastEnemies());
+    }
+
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().name != "GameScene")
+            return;
+
+        // (You don’t actually need anything here right now)
     }
 
     private IEnumerator SpawnEnemies()
@@ -37,6 +44,9 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(spawnInterval);
+
+            if (SceneManager.GetActiveScene().name != "GameScene")
+                continue;
 
             if (swarmerPrefab == null)
             {
@@ -57,6 +67,9 @@ public class EnemySpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(fastSpawnInterval);
 
+            if (SceneManager.GetActiveScene().name != "GameScene")
+                continue;
+
             if (FastPrefab == null)
             {
                 Debug.LogError("Spawner lost FastPrefab reference!");
@@ -70,12 +83,11 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    // Editor visualization
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
 
-        Vector3 centerPoint = target != null ? target.transform.position : transform.position;
+        Vector3 centerPoint = target != null ? target.position : transform.position;
         Gizmos.DrawWireSphere(centerPoint, spawnDistance);
     }
 }

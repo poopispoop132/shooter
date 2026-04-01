@@ -5,7 +5,6 @@ public class AiChase : MonoBehaviour
 {
     public GameObject player;
     public float speed;
-
     private float distance;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -15,7 +14,7 @@ public class AiChase : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             StartCoroutine(DestroyAfterDelay(other.gameObject));
-            ScoreManager.instance.AddScore();
+            ScoreManager.instance.AddScore(2);
         }
     }
 

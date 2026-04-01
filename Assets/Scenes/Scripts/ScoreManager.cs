@@ -13,6 +13,7 @@ public class ScoreManager : MonoBehaviour
     public int Score => score;
     public int HighScore => highScore;
 
+
     private void Awake()
     {
         if (instance == null)
@@ -20,7 +21,6 @@ public class ScoreManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
 
-            // Listen for scene changes
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
     }
@@ -54,17 +54,15 @@ public class ScoreManager : MonoBehaviour
                 Debug.LogWarning("ScoreText not found in GameScene");
             }
         }
-        // Any other scene (MainMenu, Retry, etc) does nothing
-        else
-        {
-        }
+
+
     }
 // fart
 
 
-    public void AddScore()
+    public void AddScore(int amount)
     {
-        score++;
+        score += amount;
         UpdateScoreText();
     }
 
