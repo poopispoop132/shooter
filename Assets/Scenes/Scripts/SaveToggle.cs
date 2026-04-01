@@ -11,7 +11,6 @@ public class ToggleSave : MonoBehaviour
         bool saved = PlayerPrefs.GetInt(key, 0) == 1;
         toggle.isOn = saved;
 
-        // Ensure listener is always attached
         toggle.onValueChanged.AddListener(OnToggleChanged);
     }
 

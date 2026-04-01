@@ -7,10 +7,17 @@ public class BulletScript : MonoBehaviour
     private Vector3 mousePos;
     private Camera mainCam;
     private Rigidbody2D rb;
+    public bool hastriggered = false;
     public float force;
+    public ScoreManager scoreManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (scoreManager == null)
+        {
+            scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
+        }
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody2D>();
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
@@ -22,9 +29,9 @@ public class BulletScript : MonoBehaviour
         Destroy(gameObject, 2f);
     }
 
-    // Update is called once per frame
+    // Update is called once per frame 
     void Update()
     {
-        
+
     }
 }

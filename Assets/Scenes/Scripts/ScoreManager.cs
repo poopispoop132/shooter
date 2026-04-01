@@ -13,7 +13,7 @@ public class ScoreManager : MonoBehaviour
     public int Score => score;
     public int HighScore => highScore;
 
-
+    
     private void Awake()
     {
         if (instance == null)
@@ -24,10 +24,14 @@ public class ScoreManager : MonoBehaviour
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
     }
-
+    public bool Level1 = false;
     void Update()
     {
-
+        if (!Level1 && score >= 50)
+        {
+            Level1 = true;
+            Debug.Log("fart");
+        }
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
